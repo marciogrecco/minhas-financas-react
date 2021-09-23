@@ -17,8 +17,13 @@ import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 import com.financas.react.model.enun.StatusLancamento;
 import com.financas.react.model.enun.TipoLancamento;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name = "lancamento")
+@Data
 public class Lancamento {
 
 	@Column(name = "id")
@@ -52,73 +57,5 @@ public class Lancamento {
 	@Enumerated(EnumType.STRING)
 	private StatusLancamento status;
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Integer getMes() {
-		return mes;
-	}
-
-	public void setMes(Integer mes) {
-		this.mes = mes;
-	}
-
-	public Integer getAno() {
-		return ano;
-	}
-
-	public void setAno(Integer ano) {
-		this.ano = ano;
-	}
-
-	public BigDecimal getValor() {
-		return valor;
-	}
-
-	public void setValor(BigDecimal valor) {
-		this.valor = valor;
-	}
-
-	public LocalDate getDatacadastro() {
-		return datacadastro;
-	}
-
-	public void setDatacadastro(LocalDate datacadastro) {
-		this.datacadastro = datacadastro;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Lancamento [id=");
-		builder.append(id);
-		builder.append(", mes=");
-		builder.append(mes);
-		builder.append(", ano=");
-		builder.append(ano);
-		builder.append(", valor=");
-		builder.append(valor);
-		builder.append(", datacadastro=");
-		builder.append(datacadastro);
-		builder.append(", usuario=");
-		builder.append(usuario);
-		builder.append(", lancamento=");
-		builder.append(tipo);
-		builder.append("]");
-		return builder.toString();
-	}
 
 }
