@@ -6,11 +6,16 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
+
+import com.financas.react.model.enun.StatusLancamento;
+import com.financas.react.model.enun.TipoLancamento;
 
 @Entity
 @Table(name = "lancamento")
@@ -18,6 +23,9 @@ public class Lancamento {
 
 	@Column(name = "id")
 	private Integer id;
+	
+	@Column(name = "descricao")
+	private String descricao;
 
 	@Column(name = "mes")
 	private Integer mes;
@@ -35,6 +43,14 @@ public class Lancamento {
 	@ManyToOne
 	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
+
+	@Column(name = "tipo")
+	@Enumerated(EnumType.STRING)
+	private TipoLancamento tipo;
+
+	@Column(name = "status")
+	@Enumerated(EnumType.STRING)
+	private StatusLancamento status;
 
 	public Integer getId() {
 		return id;
@@ -82,6 +98,27 @@ public class Lancamento {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Lancamento [id=");
+		builder.append(id);
+		builder.append(", mes=");
+		builder.append(mes);
+		builder.append(", ano=");
+		builder.append(ano);
+		builder.append(", valor=");
+		builder.append(valor);
+		builder.append(", datacadastro=");
+		builder.append(datacadastro);
+		builder.append(", usuario=");
+		builder.append(usuario);
+		builder.append(", lancamento=");
+		builder.append(tipo);
+		builder.append("]");
+		return builder.toString();
 	}
 
 }
