@@ -7,4 +7,9 @@ import com.financas.react.model.Usuario;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario,Integer>{
 
+	
+	//Usuario findByEmail(String email);
+
+
+boolean existsByemail(String email);
 }
