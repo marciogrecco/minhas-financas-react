@@ -5,7 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import com.financas.react.model.Lancamento;
 import com.financas.react.model.Usuario;
+
 @Repository
-public interface LancamentoRepository extends JpaRepository<Lancamento,Integer>{
+public interface LancamentoRepository extends JpaRepository<Lancamento, Integer> {
 
 }
